@@ -23,7 +23,7 @@ public class ActividadWebService {
     }
 
     @PostMapping(value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity guardarProducto(
+    public ResponseEntity guardarActividades(
             @RequestBody Actividades actividades,
             @RequestParam(value = "fetchId", required = false) boolean fetchId) {
 
