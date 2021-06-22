@@ -79,13 +79,13 @@ public class ActividadWebService {
                 responseMap.put("estado", "actualizado");
                 return new ResponseEntity(responseMap, HttpStatus.OK);
             } else {
-                responseMap.put("estado", "error");
                 responseMap.put("msg", "El id de la actividad a actualizar no existe");
+                responseMap.put("estado", "error");
                 return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
             }
         } else {
-            responseMap.put("estado", "error");
             responseMap.put("msg", "Debe enviar un ID");
+            responseMap.put("estado", "error");
             return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
         }
     }
@@ -102,13 +102,13 @@ public class ActividadWebService {
                 responseMap.put("estado", "borrado exitoso");
                 return new ResponseEntity(responseMap, HttpStatus.OK);
             } else {
-                responseMap.put("estado", "error");
                 responseMap.put("msg", "no se encontró la actividad con id: " + id);
+                responseMap.put("estado", "error");
                 return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
             }
         } catch (NumberFormatException ex) {
-            responseMap.put("estado", "error");
             responseMap.put("msg", "El ID debe ser un número");
+            responseMap.put("estado", "error");
             return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
         }
     }
@@ -118,12 +118,12 @@ public class ActividadWebService {
 
         HashMap<String, Object> responseMap = new HashMap<>();
         if (request.getMethod().equals("POST")) {
-            responseMap.put("estado", "error");
             responseMap.put("msg", "Debe enviar una actividad");
+            responseMap.put("estado", "error");
         }
         if (request.getMethod().equals("PUT")) {
-            responseMap.put("estado", "error");
             responseMap.put("msg", "Debe enviar una actividad");
+            responseMap.put("estado", "error");
         }
         return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
     }
