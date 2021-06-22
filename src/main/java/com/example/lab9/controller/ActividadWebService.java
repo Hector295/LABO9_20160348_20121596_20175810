@@ -121,10 +121,6 @@ public class ActividadWebService {
             responseMap.put("msg", "Debe enviar una actividad");
             responseMap.put("estado", "error");
         }
-        if (request.getMethod().equals("PUT")) {
-            responseMap.put("msg", "Debe enviar una actividad");
-            responseMap.put("estado", "error");
-        }
         return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
     }
 

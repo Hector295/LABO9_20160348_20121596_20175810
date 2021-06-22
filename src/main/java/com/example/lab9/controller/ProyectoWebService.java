@@ -167,10 +167,6 @@ public class ProyectoWebService {
             responseMap.put("msg", "Debe enviar un proyecto");
             responseMap.put("estado", "error");
         }
-        if (request.getMethod().equals("PUT")) {
-            responseMap.put("msg", "Debe enviar un proyecto");
-            responseMap.put("estado", "error");
-        }
         return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
     }
 
