@@ -12,6 +12,7 @@ public class Proyecto {
     @Column(name = "idproyecto")
     private int id;
     private String nombreproyecto;
+    private String usuario_owner;
 
     public String getUsuario_owner() {
         return usuario_owner;
@@ -20,8 +21,6 @@ public class Proyecto {
     public void setUsuario_owner(String usuario_owner) {
         this.usuario_owner = usuario_owner;
     }
-
-    private String usuario_owner;
 
     public int getId() {
         return id;
