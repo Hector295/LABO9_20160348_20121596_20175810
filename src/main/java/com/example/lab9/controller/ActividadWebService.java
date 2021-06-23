@@ -24,6 +24,7 @@ public class ActividadWebService {
     @GetMapping (value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity listarActividades(){
         return new ResponseEntity(actividadRepository.findAll(),HttpStatus.OK);
+
     }
 
     @PostMapping(value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -37,9 +38,9 @@ public class ActividadWebService {
         if (fetchId) {
             responseMap.put("id", actividades.getIdactividad());
         }
+
         responseMap.put("estado", "creado");
         return new ResponseEntity(responseMap, HttpStatus.CREATED);
-
     }
 
     @PutMapping(value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -75,14 +76,17 @@ public class ActividadWebService {
                         actOpt.getPeso().equals(actividades.getPeso())) {
                     actOpt.setPeso(actividades.getPeso());
                 }
+
                 actividadRepository.save(actOpt);
                 responseMap.put("estado", "actualizado");
                 return new ResponseEntity(responseMap, HttpStatus.OK);
+
             } else {
                 responseMap.put("msg", "El id de la actividad a actualizar no existe");
                 responseMap.put("estado", "error");
                 return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
             }
+
         } else {
             responseMap.put("msg", "Debe enviar un ID");
             responseMap.put("estado", "error");
@@ -97,6 +101,7 @@ public class ActividadWebService {
 
         try {
             int id = Integer.parseInt(idrec);
+
             if (actividadRepository.existsById(id)) {
                 actividadRepository.deleteById(id);
                 responseMap.put("estado", "borrado exitoso");
@@ -106,6 +111,7 @@ public class ActividadWebService {
                 responseMap.put("estado", "error");
                 return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
             }
+
         } catch (NumberFormatException ex) {
             responseMap.put("msg", "El ID debe ser un número");
             responseMap.put("estado", "error");
@@ -122,6 +128,7 @@ public class ActividadWebService {
             responseMap.put("estado", "error");
         }
         return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
+
     }
 
 }
