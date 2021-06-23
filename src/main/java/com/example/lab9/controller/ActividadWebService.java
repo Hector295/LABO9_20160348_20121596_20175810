@@ -24,6 +24,7 @@ public class ActividadWebService {
     @GetMapping (value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity listarActividades(){
         return new ResponseEntity(actividadRepository.findAll(),HttpStatus.OK);
+
     }
 
     @PostMapping(value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,7 +40,6 @@ public class ActividadWebService {
         }
         responseMap.put("estado", "creado");
         return new ResponseEntity(responseMap, HttpStatus.CREATED);
-
     }
 
     @PutMapping(value = "/actividad", produces = MediaType.APPLICATION_JSON_VALUE)
